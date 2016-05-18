@@ -1,1 +1,97 @@
+// override bootstrap variables
+$font-size-base: 16px !default;
+$icon-font-path: "../fonts/bootstrap/" !default;
+
+// My variables
+$sidebar-bg: #363636;
+$sidebar-txt: #DDDDDD;
+$accent: #ff3c2e;
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:500,600);
+
+$font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
+
+
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-custom";
+
+// Start here!
+
+
+.sidebar {
+
+	@include make-sm-column(2);
+
+	height: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 0;
+	background-color: $sidebar-bg;
+	color: $sidebar-txt;
+
+
+}
+
+.profile {
+	// margin-left: -15px;
+	// margin-right: -15px;
+	position: relative;
+	padding: 32px 6.85%;
+	height:132px;
+	border-bottom: 1px solid #ffffff;
+
+	> * {
+		float: left;
+	}
+
+	img {
+		margin-right: 10.27%;
+	}
+
+	.glyphicon {
+		position: absolute;
+		top: 50%;
+		right: 30px;
+		font: {
+			size:12px
+		}
+	}
+
+}
+
+.sidebar-ctrls {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.content {
+	@include make-sm-column(10);
+	@include make-sm-column-offset(2);
+
+	header {
+		@include make-row;
+
+		height: 50px;
+
+		.logo {
+			@include make-sm-column(6);
+
+		}
+
+		.header-ctrls {
+			@include make-sm-column(6);
+
+			.search {
+				@include make-sm-column(4);
+				@include make-sm-column-offset(4);
+
+			}
+
+			.btn-group {
+				right: 3%;
+				position: absolute;
+			}
+		}
+	}
+}
