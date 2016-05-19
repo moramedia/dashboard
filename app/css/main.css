@@ -5894,10 +5894,117 @@ button.close {
         @media (min-width: 768px) {
           .content header .header-ctrls .search {
             float: left;
-            width: 33.33333%; } }
+            width: 50%; } }
         @media (min-width: 768px) {
           .content header .header-ctrls .search {
-            margin-left: 33.33333%; } }
+            margin-left: 25%; } }
       .content header .header-ctrls .btn-group {
         right: 3%;
         position: absolute; }
+
+.top-info {
+  margin-left: -15px;
+  margin-right: -15px;
+  background-color: lightgray; }
+  .top-info:before, .top-info:after {
+    content: " ";
+    display: table; }
+  .top-info:after {
+    clear: both; }
+
+.current {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 768px) {
+    .current {
+      float: left;
+      width: 50%; } }
+  .current-date span {
+    display: block;
+    font-size: 24px; }
+  .current-order .label {
+    font-size: 16px; }
+
+.todos {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 768px) {
+    .todos {
+      float: left;
+      width: 50%; } }
+  .todos .panel {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media (min-width: 768px) {
+      .todos .panel {
+        float: left;
+        width: 50%; } }
+    @media (min-width: 768px) {
+      .todos .panel {
+        margin-left: 25%; } }
+
+.mid-info {
+  margin-left: -15px;
+  margin-right: -15px; }
+  .mid-info:before, .mid-info:after {
+    content: " ";
+    display: table; }
+  .mid-info:after {
+    clear: both; }
+
+.stock {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 768px) {
+    .stock {
+      float: left;
+      width: 50%; } }
+  .stock .form-group {
+    margin-left: -15px;
+    margin-right: -15px; }
+    .stock .form-group:before, .stock .form-group:after {
+      content: " ";
+      display: table; }
+    .stock .form-group:after {
+      clear: both; }
+  .stock-col {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media (min-width: 768px) {
+      .stock-col {
+        float: left;
+        width: 33.33333%; } }
+
+.markets {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 768px) {
+    .markets {
+      float: left;
+      width: 50%; } }
+  .markets .map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0; }
+  .markets .map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute; }
+
+.additional-btn {
+  float: right; }
