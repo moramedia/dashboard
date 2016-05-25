@@ -1,5 +1,5 @@
 // override bootstrap variables
-$font-size-base: 16px !default;
+$font-size-base: 12px !default;
 $icon-font-path: "../fonts/bootstrap/" !default;
 
 // My variables
@@ -24,36 +24,54 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 
 // General styles
 
-.additional-btn {
-	float: right;
-}
-
+// Set medium weight as the base
 * {
 	font-weight: 500;
 }
 
+h3 {
+	font-size: 1.5em;
+}
+
+.additional-btn {
+	float: right;
+
+	.btn {
+		background:none;
+		padding: 15px;
+		border: none;
+		font-size: 14px;
+		text-transform: uppercase;
+
+		&:active {
+			background-color: rgba(0,0,0,0.2)
+		}
+	}
+}
+
 // some mixins
 
-// remake input order on this one. https://codepen.io/CreativeJuiz/pen/BiHzp
+// Base style for checklists
+
 @mixin checklist {
-				position: relative;
-				margin-left: 40px;
-				cursor: pointer;
-				padding: 7px 0;
-				background: none;
-				color: darken(#FFFFFF, 8);
-				border: 0;
-				border: {
-					bottom: 1px solid rgba(244,244,244,0.25);
-					radius: 0;
-				}
 
-				&:last-child {
+				&-item {
+					position: relative;
+					margin-left: 40px;
+					cursor: pointer;
+					padding: 7px 0;
+					background: none;
+					font-weight: 400;
+					color: darken(#FFFFFF, 8);
+					border: 0;
+					border: {
+						bottom: 1px solid rgba(244,244,244,0.25);
+						radius: 0;
+					}
+
+					&:last-child {
 					border-bottom: 0;
-				}
-
-				&::before {
-
+					}
 				}
 
 				input[type="checkbox"] {
@@ -62,10 +80,44 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 						left: -9999px;
 					}
 
+					
+
 					&:not(:checked) + label, &:checked + label {
 						position: relative;
-						padding-left: 40px;
+						margin-left: 40px;
 						cursor: pointer;
+					}
+
+					& + label:before, & + label:after {
+						font-family: 'Material Icons';
+						font-size: 18px;
+						position: absolute;
+						left: -32px;
+						top: 3px;
+					}
+
+					&:not(:checked) + label:before {
+						content: '\e835';
+					}
+
+					&:checked + label {
+						text-decoration: line-through;
+					}
+
+					&:checked + label:after {
+						content: '\e834';
+						color: $accent;
+					}
+
+					&:disabled:not(:checked) + label:before,
+					&:disabled:checked + label:after {
+						opacity: .5;
+						color: darken(#FFFFFF, 8);
+					}
+
+					&:checked:focus + label:before,
+					&:not(:checked):focus + label:before {
+						text-shadow: 1px 1px 1px #000;
 					}
 				}
 			}
@@ -100,12 +152,15 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 	border-bottom: 1px solid $darker-text-gray;
 
 	.welcome {
-		span {
+		span:first-child {
 			color: $dark-text-gray;
+			display: block;
+			margin-bottom: 0.75em;
 		}
-		h3 {
-			margin-top: 0.5em;
+		&-name {
+			font-size: 18px; 
 		}
+		
 	}
 
 	> * {
@@ -128,12 +183,12 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 
 }
 
-@mixin sidebar-items {
+.sidebar-nav, .sidebar-ctrls {
 	.nav-item {
 		a {
-			padding: 20px 9.24%;
+			padding: 18px 9.24%;
 			color: $text-gray;
-			font-size: 18px;
+			font-size: 14px;
 
 			&:hover, &:focus {
 				background-color: #292929;
@@ -143,15 +198,11 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 		}
 
 		.material-icons {
-			vertical-align: top;
+			vertical-align: middle;
 			margin-right: 10%;
 			color: $darker-text-gray;
 		}
 	}
-}
-
-.sidebar-nav {
-	@include sidebar-items;
 
 	li.active {
 		a, a:hover, a:focus {
@@ -168,7 +219,7 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 			font-family: 'Material Icons';
 			position: absolute;
 			right: 5%;
-			margin-top: -2px;
+			margin-top: -5px;
 			font-size: 24px;
 			color: $darker-text-gray;
 		}
@@ -177,8 +228,6 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 }
 
 .sidebar-ctrls {
-	@include sidebar-items;
-
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -197,11 +246,12 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 	header {
 		@include make-row;
 
-		height: 5vh; // How will I handle this???
+		// height: 5vh; // How will I handle this???
 		background-color: $header-bg;
 
 		.logo-location {
 			@include make-sm-column(6);
+			padding-top: 5px;
 
 			.logo	{
 				height: 18px;
@@ -223,14 +273,20 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 				color: #9c9c9c;
 
 				.form-group	{
-					margin-bottom: 0;
+					margin: {
+						top: 3px; bottom: 3px;
+					}
+				}
+
+				.form-control {
+					height: 28px;
 				}
 
 				.material-icons {
 					position: absolute;
 					padding: {
-						top: 6px;
-						left: 10px;
+						top: 3px;
+						left: 5px;
 					}
 					pointer-events: none;
 				}
@@ -247,6 +303,14 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 			.btn-group {
 				right: 3%;
 				position: absolute;
+
+				.btn {
+					padding: {
+						left: 3px;
+						top: 3px;
+						bottom: 0;
+					}
+				}
 			}
 		}
 	}
@@ -264,8 +328,10 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 .current {
 	@include make-sm-column(6);
 
+	padding-top: 20px;
 	color: #FFFFFF;
-	font-size: 1.125em;
+	font-size: 14px;
+	height: 280px;
 
 	&-date {
 		span {
@@ -275,19 +341,26 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 	}
 
 	&-order {
+		position: absolute;
+		bottom: 0;
+
 		.label {
-			font-size: 16px;
+			font-size: 14px;
 			background-color: $accent;
 		}
 	}
 
-	h1 { font-size: 48px; }
+	h1 {
+		font-size: 36px;
+		margin-top: 12px;
+	}
 }
 
 // To-dos at the right of order info
 
 .todos {
 	@include make-sm-column(6);
+	padding-top: 20px;
 
 	color: #FFFFFF;
 
@@ -295,7 +368,7 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 		@include make-sm-column(6);
 		@include make-sm-column-offset(3);
 
-		background-color: rgba(255,255,255,0.3);
+		background-color: rgba(255,255,255,0.35);
 		border: none;
 		border-radius: 10px;
 
@@ -322,8 +395,21 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 			padding:0;
 
 
-			.list-group-item {
+			.list-group {
 				@include checklist;
+
+				margin: {
+					left: -15px;
+					right: -15px;
+					bottom: 0;
+				}
+
+				padding: {
+					left: 15px;
+					right: 15px;
+				}
+
+				border-bottom: 1px solid rgba(244,244,244,0.25);
 			}
 		}
 	}
@@ -342,6 +428,8 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 
 	.form-group {
 		@include make-row;
+
+		@include checklist;
 	}
 
 	&-col {
