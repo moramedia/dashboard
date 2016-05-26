@@ -12,6 +12,7 @@ $lighter-text-gray: lighten(#000000, 32%);
 
 $header-bg: #f9f9f9;
 $light-utility-gray: #e5e5e5;
+$stock-bg: #f7f7f7;
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,600);
 
@@ -22,14 +23,14 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 
 // Start here!
 
-// General styles
+/* General styles */
 
 // Set medium weight as the base
 * {
 	font-weight: 500;
 }
 
-h3 {
+section h3 {
 	font-size: 1.5em;
 }
 
@@ -38,7 +39,7 @@ h3 {
 
 	.btn {
 		background:none;
-		padding: 15px;
+		padding: 10px;
 		border: none;
 		font-size: 14px;
 		text-transform: uppercase;
@@ -59,7 +60,7 @@ h3 {
 					position: relative;
 					margin-left: 40px;
 					cursor: pointer;
-					padding: 7px 0;
+					padding: 6px 0;
 					background: none;
 					font-weight: 400;
 					color: darken(#FFFFFF, 8);
@@ -115,10 +116,11 @@ h3 {
 						color: darken(#FFFFFF, 8);
 					}
 
-					&:checked:focus + label:before,
-					&:not(:checked):focus + label:before {
-						text-shadow: 1px 1px 1px #000;
+					&:not(:checked):focus + label,
+					&:checked:focus + label {
+						text-decoration: underline;
 					}
+
 				}
 			}
 
@@ -137,6 +139,7 @@ h3 {
 	bottom: 0;
 	left: 0;
 	padding: 0;
+	z-index: 10;
 	background-color: $sidebar-bg;
 	color: $sidebar-txt;
 	box-shadow: 2px 0 5px rgba(0,0,0,0.25);
@@ -171,13 +174,13 @@ h3 {
 		margin-right: 10.27%;
 	}
 
-	.glyphicon {
+	.icon {
 		position: absolute;
-		top: 50%;
+		top: calc(50% - 24px / 2);
 		right: 10.27%;
 		color: $darker-text-gray;
 		font: {
-			size:12px
+			// size:12px
 		}
 	}
 
@@ -233,6 +236,10 @@ h3 {
 	width: 100%;
 
 	border-top: 1px solid $darker-text-gray;
+
+	a::after {
+		content: "";
+	}
 }
 
 // Main Content
@@ -246,7 +253,6 @@ h3 {
 	header {
 		@include make-row;
 
-		// height: 5vh; // How will I handle this???
 		background-color: $header-bg;
 
 		.logo-location {
@@ -331,7 +337,7 @@ h3 {
 	padding-top: 20px;
 	color: #FFFFFF;
 	font-size: 14px;
-	height: 280px;
+	height: 260px;
 
 	&-date {
 		span {
@@ -360,7 +366,7 @@ h3 {
 
 .todos {
 	@include make-sm-column(6);
-	padding-top: 20px;
+	padding-top: 15px;
 
 	color: #FFFFFF;
 
@@ -426,14 +432,82 @@ h3 {
 .stock {
 	@include make-sm-column(6);
 
-	.form-group {
+	background-color: $stock-bg;
+	
+	color: #717171;
+
+	.list-group {
 		@include make-row;
 
+		position: relative;
+		padding-bottom: 5px;
+		margin-bottom: 0;
+		border-bottom: 1px solid #cfcfcf;
+
+
 		@include checklist;
+
+		// Modify checklist styles
+		.list-group-item {
+			background: none;
+			border: none;
+			border-bottom: 1px solid #cfcfcf;
+			color: #717171;
+
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+
+		input[type="checkbox"] {
+					&:not(:checked), &:checked {
+						position: absolute;
+						left: -9999px;
+					}
+
+					
+
+					&:not(:checked) + label, &:checked + label {
+						position: relative;
+						margin-left: 40px;
+						cursor: pointer;
+					}
+
+					& + label:before, & + label:after {
+						font-family: 'Material Icons';
+						font-size: 18px;
+						position: absolute;
+						left: -32px;
+						top: 3px;
+						color: #cfcfcf;
+					}
+				}
 	}
 
 	&-col {
 		@include make-sm-column(4);
+
+		&:last-child {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			padding-bottom: 10px;
+		}
+	}
+
+	&-total {
+		text-align: right;
+		span {
+			font-size: 14px;
+			font-weight: 600;
+			color: $accent;
+		}
+	}
+
+	.additional-btn {
+		.btn {
+			color: $dark-text-gray;
+		}
 	}
 }
 
@@ -441,12 +515,28 @@ h3 {
 
 .markets {
 	@include make-sm-column(6);
+	background-color: $accent;
+	color: #fff;
+	position: relative;
+
+	h3 {
+		position: absolute;
+		top: 0;
+	}
 
 	.map-responsive {
 		overflow: hidden;
-		padding-bottom: 56.25%;
+		padding-bottom: 166px;
 		position: relative;
-		height: 0;
+		// height: 0;
+		margin: {
+			left: -15px;
+			right: -15px;
+		}
+		-webkit-filter: grayscale(1);
+		filter: grayscale(1);
+		opacity: 0.4;
+		border-bottom: 1px solid #fff;
 	}
 
 	.map-responsive iframe {
@@ -465,16 +555,82 @@ h3 {
 .staff {
 	@include make-sm-column(12);
 
+	background-color: $darker-text-gray;
+	color: #bfbfbf;
+
 	hgroup {
-		
+		margin-top: 17px;
+    	margin-bottom: 8.5px;
+
+    	h3 { 
+    		display: inline;
+    	}
+
+    	.btn {
+    		background-color: $accent;
+    		color: #fff;
+    		margin-left: 1em;
+    		font-size: 12px;
+
+    		.glyphicon {
+    			margin-right: 3px;
+    		}
+    	}
 	}
 
 	&-list {
 	@include make-row;
+
+	border-bottom: 1px solid #656565;
 	}
 
 	&-people {
 		@include make-sm-column(6);
+
+		margin-bottom: 0;
+
+		.list-group-item {
+			font-size: 14px;
+			background: none;
+			border: none;
+			padding: 6px 0;
+
+			&:last-child .txt-info {
+				border-bottom: none;
+			}
+		}
+
+		.staff-picture {
+			width: 10%;
+			float: left;
+
+			img {
+				width: 45px;
+			}
+		}
+
+		.txt-info {
+			width: 90%;
+			float: right;
+			border-bottom: 1px solid #656565;
+			padding-bottom: 16px;
+		}
+
+		.staff-name {
+			@include make-sm-column(6);
+			span {
+				display: block;
+				font-size: 12px;
+				font-weight: 400;
+			}
+		}
+
+		.staff-schedule {
+			@include make-sm-column(6);
+
+			margin-top: 1em;
+			text-align: right;
+		}
 	}
 }
 

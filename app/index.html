@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Hello!</title>
+	<title>Profassci Italian Cuisine</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -18,11 +18,12 @@
 		<div class="row">
 			<section class="sidebar">
 				<div class="profile">
-					<img src="https://s3.amazonaws.com/uifaces/faces/twitter/sauro/73.jpg" width="68" height="68" alt="something" class="img-circle">
+					<img src="https://randomuser.me/api/portraits/men/11.jpg" width="68" height="68" alt="That's you" class="img-circle">
 					<div class="welcome">
 						<span>Welcome</span>
 						<span class="welcome-name">Carl</span>
 					</div>
+					<i class="material-icons icon">arrow_drop_down</i>
 					<span class="glyphicon glyphicon-triangle-bottom"></span>
 				</div>
 				<nav class="sidebar-nav">
@@ -107,7 +108,7 @@
 				<div class="mid-info">
 					<section class="stock">
 						<h3>Stock</h3>
-						<form class="form-group">
+						<form class="list-group form-group">
 							<div class="stock-col">
 								<input type="checkbox" id="stock-1"><label class="list-group-item" for="stock-1">list item 1</label>
 								<input type="checkbox" id="stock-2"><label class="list-group-item" for="stock-2">list item 2</label>
@@ -126,14 +127,15 @@
 							</div>
 						</form>
 						<div class="additional-btn">
-							<button type="button" class="btn btn-primary">Add item</button>
+							<button type="button" class="btn btn-primary">Order</button>
 						</div>
 					</section>
-					<section class="markets">
-						<h3>Markets</h3>
+
+					<section class="markets">						
 						<div class="map-responsive">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d10758.524871549207!2d-122.33254805753897!3d47.61386008681521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1ssupermarket!5e0!3m2!1sen!2smx!4v1463698571307" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 						</div>
+						<h3>Markets</h3>
 						<div class="additional-btn">
 							<button type="button" class="btn btn-primary">View More</button>
 						</div>
@@ -142,37 +144,71 @@
 				<div class="bottom-info">
 					<section class="staff">
 						<hgroup>
-							<h3>Staff</h3><button class="btn btn-small">+ ADD</button>
+							<h3>Staff</h3>
+							<button class="btn btn-sm">
+								<span class="glyphicon glyphicon-plus"></span>ADD</button>
 						</hgroup>
 						<div class="staff-list">
-							<ul class="list-group staff-people">
-								<li class="list-group-item">
-									<img src="//placehold.it/45" class="img-circle"><div class="staff-name">Richard Bradley <span>Sous Chef</span></div>
-									<div class="staff-schedule">2:00 pm - 12:30 am</div>
-								</li>
-								<li class="list-group-item">
-									<img src="//placehold.it/45" class="img-circle"><div class="staff-name">Richard Bradley <span>Sous Chef</span></div>
-									<div class="staff-schedule">2:00 pm - 12:30 am</div>
-								</li>
-								<li class="list-group-item">
-									<img src="//placehold.it/45" class="img-circle"><div class="staff-name">Richard Bradley <span>Sous Chef</span></div>
-									<div class="staff-schedule">2:00 pm - 12:30 am</div>
-								</li>
-							</ul>
-							<ul class="list-group staff-people">
-								<li class="list-group-item">
-									<img src="//placehold.it/45" class="img-circle"><div class="staff-name">Richard Bradley <span>Sous Chef</span></div>
-									<div class="staff-schedule">2:00 pm - 12:30 am</div>
-								</li>
-								<li class="list-group-item">
-									<img src="//placehold.it/45" class="img-circle"><div class="staff-name">Richard Bradley <span>Sous Chef</span></div>
-									<div class="staff-schedule">2:00 pm - 12:30 am</div>
-								</li>
-								<li class="list-group-item">
-									<img src="//placehold.it/45" class="img-circle"><div class="staff-name">Richard Bradley <span>Sous Chef</span></div>
-									<div class="staff-schedule">2:00 pm - 12:30 am</div>
-								</li>
-							</ul>
+							<div class="list-group staff-people">
+								<div class="list-group-item col-sm-12">
+									<div class="staff-picture">
+										<img src="https://randomuser.me/api/portraits/men/11.jpg" class="img-circle">
+									</div>
+									<div class="txt-info">
+										<div class="staff-name">Carl Johnston<span>Head Chef</span></div>
+										<div class="staff-schedule">2:00 pm - 12:30 am</div>
+									</div>
+								</div>
+								<div class="list-group-item col-sm-12">
+									<div class="staff-picture">
+										<img src="https://randomuser.me/api/portraits/men/12.jpg" class="img-circle">
+									</div>
+									<div class="txt-info">
+										<div class="staff-name">Richard Bradley <span>Chef de Cuisine</span></div>
+										<div class="staff-schedule">2:00 pm - 12:30 am</div>
+									</div>
+								</div>
+								<div class="list-group-item col-sm-12">
+									<div class="staff-picture">
+										<img src="https://randomuser.me/api/portraits/women/10.jpg" class="img-circle">
+									</div>
+									<div class="txt-info">
+										<div class="staff-name">Karen Pearson<span>Sous Chef</span></div>
+										<div class="staff-schedule">2:00 pm - 12:30 am</div>
+									</div>
+								</div>
+							</div>
+							<div class="list-group staff-people">
+								<div class="list-group-item col-sm-12">
+									<div class="staff-picture">
+										<img src="https://randomuser.me/api/portraits/men/10.jpg" class="img-circle">
+									</div>
+									<div class="txt-info">
+										<div class="staff-name">Leonard Thompson<span>Line Cook</span></div>
+										<div class="staff-schedule">2:00 pm - 12:30 am</div>
+									</div>
+								</div>
+								<div class="list-group-item col-sm-12">
+									<div class="staff-picture">
+										<img src="https://randomuser.me/api/portraits/women/45.jpg" class="img-circle">
+									</div>
+									<div class="txt-info">
+										<div class="staff-name">Ashley Hunter<span>Tourant</span></div>
+										<div class="staff-schedule">2:00 pm - 12:30 am</div>
+									</div>
+								</div>
+								<div class="list-group-item col-sm-12">
+									<div class="staff-picture">
+										<img src="https://randomuser.me/api/portraits/women/11.jpg" class="img-circle">
+									</div>
+									<div class="txt-info">
+										<div class="staff-name">Grace Parsons<span>Prep Cook</span></div>
+										<div class="staff-schedule">2:00 pm - 12:30 am</div>
+									</div>
+								</div>
+								
+								
+							</div>
 						</div>
 						<div class="additional-btn">
 							<button type="button" class="btn btn-primary">View More</button>
