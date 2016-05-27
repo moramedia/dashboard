@@ -1,6 +1,6 @@
 // override bootstrap variables
 $font-size-base: 12px !default;
-$icon-font-path: "../fonts/bootstrap/" !default;
+// $icon-font-path: "../fonts/bootstrap/" !default;
 
 // My variables
 
@@ -19,7 +19,7 @@ $stock-bg: #f7f7f7;
 $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 
 
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-custom";
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-custom";
 
 // Start here!
 
@@ -572,8 +572,9 @@ section h3 {
     		margin-left: 1em;
     		font-size: 12px;
 
-    		.glyphicon {
-    			margin-right: 3px;
+    		.icon {
+    			float: left;
+    			font-size: 16px;
     		}
     	}
 	}
