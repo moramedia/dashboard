@@ -25,6 +25,10 @@ $font-family-sans-serif:  'Raleway', Helvetica, Arial, sans-serif;
 
 /* General styles */
 
+body {
+	background-color: $darker-text-gray;
+}
+
 // Set medium weight as the base
 * {
 	font-weight: 500;
@@ -327,6 +331,7 @@ section h3 {
 .top-info {
 	@include make-row;
 	background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)), url('http://www.lorempizza.com/1200/400') no-repeat;
+	background-size: cover;
 }
 
 // Current order info
